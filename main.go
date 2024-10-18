@@ -4,6 +4,7 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"nofi/routes"
 
 	"github.com/joho/godotenv"
 )
@@ -15,7 +16,8 @@ func main() {
 	mux.HandleFunc("/hello", func(w http.ResponseWriter, req *http.Request) {
 		io.WriteString(w, "Hello, world!\n")
 	})
-	// mux.HandleFunc("/user/", routes.Userhandler)
+	mux.HandleFunc("/user/", routes.Userhandler)
+	mux.HandleFunc("/sold/", routes.SoldHandler)
 
 	log.Println("About to listen on PORT :2005")
 

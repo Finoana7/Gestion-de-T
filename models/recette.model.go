@@ -8,4 +8,6 @@ type TRecette struct {
 }
 
 type TAddRecette struct {
+	Label  string  `json:"label"`
+	Amount float64 `json:"amount"`
 }

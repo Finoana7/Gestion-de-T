@@ -41,3 +41,7 @@ func AddTRansaction(w http.ResponseWriter, r http.Request) {
 
 	json.NewEncoder(w).Encode(transaction)
 }
+
+func GetTransaction(w http.ResponseWriter, r http.Request) {
+	json.NewEncoder(w).Encode(data.Transaction)
+}

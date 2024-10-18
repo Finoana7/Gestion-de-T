@@ -3,14 +3,15 @@ package routes
 import (
 	"net/http"
 	"nofi/controller"
+	"nofi/middleware"
 )
 
 func RecetteHandler(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 	case http.MethodGet:
-		controller.GetRecette(w, r)
+		middleware.JwtGuard(controller.GetRecette).ServeHTTP(w, r)
 	case http.MethodPost:
-		controller.AddRecette(w, r)
+		middleware.JwtGuard(controller.AddRecette).ServeHTTP(w, r)
 	default:
 		http.Error(w, "", http.StatusMethodNotAllowed)
 	}

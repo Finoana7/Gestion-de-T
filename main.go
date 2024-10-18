@@ -19,6 +19,7 @@ func main() {
 	mux.HandleFunc("/user/", routes.Userhandler)
 	mux.HandleFunc("/sold", routes.SoldHandler)
 	mux.HandleFunc("/recette", routes.RecetteHandler)
+	mux.HandleFunc("/trans", routes.TransactionHandler)
 
 	log.Println("About to listen on PORT :2005")
 

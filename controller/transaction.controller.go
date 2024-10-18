@@ -11,7 +11,7 @@ import (
 	"github.com/google/uuid"
 )
 
-func AddTRansaction(w http.ResponseWriter, r http.Request) {
+func AddTRansaction(w http.ResponseWriter, r *http.Request) {
 	body, err := io.ReadAll(r.Body)
 
 	if err != nil {
@@ -42,6 +42,6 @@ func AddTRansaction(w http.ResponseWriter, r http.Request) {
 	json.NewEncoder(w).Encode(transaction)
 }
 
-func GetTransaction(w http.ResponseWriter, r http.Request) {
+func GetTransaction(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(data.Transaction)
 }

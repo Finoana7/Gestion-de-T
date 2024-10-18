@@ -3,7 +3,7 @@ package middleware
 import (
 	"context"
 	"net/http"
-	"prime/helper"
+	"nofi/helper"
 	"strings"
 
 	"github.com/dgrijalva/jwt-go"

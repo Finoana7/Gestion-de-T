@@ -11,7 +11,7 @@ import (
 	"github.com/google/uuid"
 )
 
-func AddRecette(w http.ResponseWriter, r http.Request) {
+func AddRecette(w http.ResponseWriter, r *http.Request) {
 	body, err := io.ReadAll(r.Body)
 
 	if err != nil {
@@ -37,6 +37,6 @@ func AddRecette(w http.ResponseWriter, r http.Request) {
 	json.NewEncoder(w).Encode(recette)
 }
 
-func GetRecette(w http.ResponseWriter, r http.Request) {
+func GetRecette(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(data.Recette)
 }

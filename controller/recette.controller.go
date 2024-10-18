@@ -33,4 +33,10 @@ func AddRecette(w http.ResponseWriter, r http.Request) {
 	var recette models.TRecette = models.TRecette{ID: uuid.NewString(), Date: helper.GetDate(), Label: dataAdd.Label, Amount: dataAdd.Amount}
 
 	data.Recette = append(data.Recette, recette)
+
+	json.NewEncoder(w).Encode(recette)
+}
+
+func GetRecette(w http.ResponseWriter, r http.Request) {
+	json.NewEncoder(w).Encode(data.Recette)
 }

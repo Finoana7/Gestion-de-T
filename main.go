@@ -14,6 +14,8 @@ func main() {
 	godotenv.Load()
 
 	var mux = http.NewServeMux()
+	handlerWithCors := middleware.CorsMiddleware(mux)
+
 	mux.HandleFunc("/hello", func(w http.ResponseWriter, r *http.Request) {
 		io.WriteString(w, "Hello, world!\n")
 	})
@@ -24,6 +26,9 @@ func main() {
 
 	log.Println("About to listen on PORT :2005")
 
-	err := http.ListenAndServe(":2005", middleware.CorsMiddleware(mux))
-	log.Fatal(err)
+	// Démarrer le serveur
+	http.ListenAndServe(":2005", handlerWithCors)
+
+	// err := http.ListenAndServe(":2005", middleware.CorsMiddleware(mux))
+	// log.Fatal(err)
 }

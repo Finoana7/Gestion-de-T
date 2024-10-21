@@ -4,6 +4,7 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"nofi/middleware"
 	"nofi/routes"
 
 	"github.com/joho/godotenv"
@@ -23,6 +24,6 @@ func main() {
 
 	log.Println("About to listen on PORT :2005")
 
-	err := http.ListenAndServe(":2005", mux)
+	err := http.ListenAndServe(":2005", middleware.CorsMiddleware(mux))
 	log.Fatal(err)
 }

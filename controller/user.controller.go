@@ -17,6 +17,7 @@ func GetAllUsers(w http.ResponseWriter, r *http.Request) {
 }
 
 func GetOne(w http.ResponseWriter, r *http.Request) {
+	(w).Header().Set("Access-Control-Allow-Origin", "*")
 	claims, ok := r.Context().Value("jwtClaims").(*jwt.MapClaims)
 	if !ok {
 		http.Error(w, "failed to get claims", http.StatusInternalServerError)

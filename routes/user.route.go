@@ -8,6 +8,7 @@ import (
 )
 
 func Userhandler(w http.ResponseWriter, r *http.Request) {
+	(w).Header().Set("Access-Control-Allow-Origin", "*")
 	path := strings.TrimPrefix(r.URL.Path, "/user")
 
 	switch {
